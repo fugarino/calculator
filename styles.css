@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+/* Calculator */
+
+.calculator {
+  height: 700px;
+  width: 450px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px rgb(189, 189, 189);
+  overflow: hidden;
+  background: rgb(64, 62, 62);
+}
+
+/* Display */
+
+.display {
+  height: 200px;
+  background: rgb(64, 62, 62);
+  position: relative;
+}
+
+.output {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  color: #fff;
+}
+
+/* Buttons */
+
+.buttons {
+  height: 480px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px;
+}
+
+.buttons > button {
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.buttons > button:active {
+  transform: translateY(1px);
+}
+
+.buttons > button:hover {
+  opacity: 0.75;
+}
+
+.ac,
+.del,
+.modulus {
+  background: rgb(118, 115, 115);
+}
+
+.number,
+.dot {
+  background: rgb(38, 35, 35);
+}
+
+.divide,
+.multiply,
+.subtract,
+.add,
+.equals {
+  background: rgb(239, 144, 29);
+}
+
+.span-two {
+  grid-column: span 2;
+}
