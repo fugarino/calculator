@@ -4,6 +4,7 @@ const output = document.querySelector(".output");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equals");
 const ac = document.querySelector(".ac");
+const del = document.querySelector(".del");
 
 let firstValue = "";
 let operatorValue = "";
@@ -14,11 +15,9 @@ const compute = (num) => {
   if (operatorValue.length === 0) {
     firstValue += num;
     output.textContent = firstValue;
-    console.log(firstValue);
   } else {
     secondValue += num;
     output.textContent = secondValue;
-    console.log(secondValue);
   }
 };
 
@@ -63,4 +62,14 @@ ac.addEventListener("click", () => {
   secondValue = "";
   operatorValue = "";
   output.textContent = "0";
+});
+
+del.addEventListener("click", () => {
+  let newStr = firstValue.slice(0, -1);
+  firstValue = newStr;
+  if (firstValue < 1) {
+    output.textContent = "0";
+  } else {
+    output.textContent = firstValue;
+  }
 });
