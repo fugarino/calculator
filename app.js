@@ -3,31 +3,29 @@ const nums = document.querySelectorAll(".number");
 const output = document.querySelector(".output");
 const operators = document.querySelectorAll(".operator");
 const equals = document.querySelector(".equals");
+const ac = document.querySelector(".ac");
 
 let firstValue = "";
 let operatorValue = "";
 let secondValue = "";
 
 // Functions
-const compute = () => {};
-
-const getSecondValue = () => {
-  nums.forEach((num) => {
-    num.addEventListener("click", (e) => {
-      let number = e.target.textContent;
-      secondValue += number;
-      output.textContent = secondValue;
-    });
-  });
+const compute = (num) => {
+  if (operatorValue.length === 0) {
+    firstValue += num;
+    output.textContent = firstValue;
+    console.log(firstValue);
+  } else {
+    secondValue += num;
+    output.textContent = secondValue;
+    console.log(secondValue);
+  }
 };
 
 // EventListeners
 nums.forEach((num) => {
   num.addEventListener("click", (e) => {
-    if (operatorValue.length > 0) return;
-    let number = e.target.textContent;
-    firstValue += number;
-    output.textContent = firstValue;
+    compute(e.target.textContent);
   });
 });
 
@@ -35,7 +33,6 @@ operators.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     operatorValue = e.target.textContent;
     output.textContent = `${firstValue} ${operatorValue}`;
-    getSecondValue();
   });
 });
 
@@ -59,4 +56,11 @@ equals.addEventListener("click", () => {
       output.textContent = a % b;
       break;
   }
+});
+
+ac.addEventListener("click", () => {
+  firstValue = "";
+  secondValue = "";
+  operatorValue = "";
+  output.textContent = "0";
 });
